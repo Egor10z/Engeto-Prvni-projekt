@@ -1,2 +1,4 @@
-package com.engeto.projekt;public class ListOfStates {
+package com.engeto.projekt;
+
+public class ListOfStates {
 }
