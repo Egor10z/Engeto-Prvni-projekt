@@ -2,18 +2,18 @@ package com.engeto.projekt;
 
 public class State {
 
-    private String stateAbbreviations;
-    private String nameOfState;
-    private int fullVAT;
-    private double reducedVAT;
-    private String description;
+     String stateAbbreviations;
+     String nameOfState;
+     Double fullVAT;
+     Double reducedVAT;
+     boolean specialVAT;
 
-    public State(String stateAbbreviations, String nameOfState, int fullVAT, double reducedVAT, String description) {
+    public State(String stateAbbreviations, String nameOfState, Double fullVAT, Double reducedVAT, boolean specialVAT) {
         this.stateAbbreviations = stateAbbreviations;
         this.nameOfState = nameOfState;
         this.fullVAT = fullVAT;
         this.reducedVAT = reducedVAT;
-        this.description = description;
+        this. specialVAT = specialVAT;
     }
 
     public String getStateAbbreviations() {
@@ -32,11 +32,11 @@ public class State {
         this.nameOfState = nameOfState;
     }
 
-    public int getFullVAT() {
+    public Double getFullVAT() {
         return fullVAT;
     }
 
-    public void setFullVAT(int fullVAT) {
+    public void setFullVAT(Double fullVAT) {
         this.fullVAT = fullVAT;
     }
 
@@ -48,11 +48,11 @@ public class State {
         this.reducedVAT = reducedVAT;
     }
 
-    public String getDescription() {
-        return description;
+    public boolean getDescription() {
+        return specialVAT;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(boolean specialVAT) {
+        this.specialVAT = specialVAT;
     }
 }
