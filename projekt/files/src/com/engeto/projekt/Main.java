@@ -7,5 +7,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        ListOfStates listOfStates = new ListOfStates();
+         try {
+             listOfStates.importStatesFromFile(FILENAME);
+         } catch (StateException e) {
+             e.printStackTrace();
+         }
+
     }
 }
