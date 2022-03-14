@@ -11,18 +11,18 @@ public class ListOfStates {
 
     private static final String DELIMITER = "\t";
 
-    List<State> ListOfStates = new ArrayList<>();
+    List<State> listOfStates = new ArrayList<>();
 
     public void addState(State state) {
-        ListOfStates.add(state);
+        listOfStates.add(state);
     }
 
     public State getState(int index) {
-        return ListOfStates.get(index);
+        return listOfStates.get(index);
     }
 
     public void removeState(int index) {
-        ListOfStates.remove(index);
+        listOfStates.remove(index);
     }
 
     public void importStatesFromFile(String filename) throws StateException {
@@ -43,5 +43,10 @@ public class ListOfStates {
         }
     }
 
-}
+
+    public List<State> getAllStates() {
+        return new ArrayList<>(listOfStates);
+
+
+}}
 

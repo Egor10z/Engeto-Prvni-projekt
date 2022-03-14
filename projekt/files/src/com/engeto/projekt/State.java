@@ -19,6 +19,7 @@ public class State {
 
     public static State parseState(String text,String delimiter) throws StateException{
         String[] parts = text.split(delimiter);
+
         String stateAbbreviations = parts[0];
         String nameOfState = parts [1];
         try {
@@ -79,5 +80,9 @@ public class State {
 
     public void setDescription(boolean specialVAT) {
         this.specialVAT = specialVAT;
+    }
+
+    public String getStateInfo() {
+        return "Název země: " + nameOfState + "(zkratka): " +stateAbbreviations+ " zakladní sazba " + fullVAT+ "%";
     }
 }
