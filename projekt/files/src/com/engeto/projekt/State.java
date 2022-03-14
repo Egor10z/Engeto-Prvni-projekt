@@ -16,6 +16,31 @@ public class State {
         this. specialVAT = specialVAT;
     }
 
+
+    public static State parseState(String text,String delimiter) throws StateException{
+        String[] parts = text.split(delimiter);
+        String stateAbbreviations = parts[0];
+        String nameOfState = parts [1];
+        try {
+            Double fullVAT = Double.parseDouble(parts[2]);
+            Double reducedVAT = Double.parseDouble(parts[3]);
+            boolean specialVAT;
+            if (parts[4].equals("true")){
+                specialVAT = true;
+            }
+            else if (parts[4].equals("false")){
+                specialVAT = false;
+            }
+            else{
+                throw new StateException("Chybně zadaná hodnota pro specální sazby");
+            }
+            return new State(stateAbbreviations,nameOfState,fullVAT,reducedVAT,specialVAT);
+        } catch (NumberFormatException ex){
+            throw new StateException("Špatně zadané údaje");
+        }
+
+    }
+
     public String getStateAbbreviations() {
         return stateAbbreviations;
     }
