@@ -46,7 +46,13 @@ public class ListOfStates {
 
     public List<State> getAllStates() {
         return new ArrayList<>(listOfStates);
-
+    }
+    public void getAllStates20Vat() {
+        for(State state : listOfStates) {
+            if (state.getFullVAT() > 20) {
+                System.out.println(state.getStateInfo());
+            }
+    }
 
 }}
 

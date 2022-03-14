@@ -1,5 +1,8 @@
 package com.engeto.projekt;
 
+import javax.crypto.spec.PSource;
+import java.util.ArrayList;
+
 public class State {
 
      String stateAbbreviations;
@@ -83,6 +86,8 @@ public class State {
     }
 
     public String getStateInfo() {
-        return "Název země: " + nameOfState + "(zkratka): " +stateAbbreviations+ " zakladní sazba " + fullVAT+ "%";
+        return "Název země: " + nameOfState + " (zkratka): " +stateAbbreviations+ " zakladní sazba " + fullVAT+ "%";
     }
-}
+
+
+    }

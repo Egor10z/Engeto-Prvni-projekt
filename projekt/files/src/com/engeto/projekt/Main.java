@@ -11,16 +11,20 @@ public class Main {
     public static void main(String[] args) {
 
         ListOfStates states = new ListOfStates();
-         try {
-             states.importStatesFromFile(FILENAME);
-         } catch (StateException e) {
-             e.printStackTrace();
-         }
+        try {
+            states.importStatesFromFile(FILENAME);
+        } catch (StateException e) {
+            e.printStackTrace();
+        }
 
-         for (State state : states.getAllStates()) {
-             System.out.println(state.getStateInfo());
-         }
-         }
 
-    }
+        //  for (State state : states.getAllStates()) {
+        //System.out.println(state.getStateInfo());
+        //}
+
+        //states.getAllStates20Vat();
+
+    }}
+
+
 
