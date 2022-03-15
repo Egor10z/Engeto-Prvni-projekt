@@ -16,15 +16,21 @@ public class Main {
         } catch (StateException e) {
             e.printStackTrace();
         }
+    //1.
+        //  for (State state : states.getAllStates()) {
+        //System.out.println(state.getStateInfo());
+        //
+        //}
+    //2.
+        states.getAllStates20Vat();
 
 
-          for (State state : states.getAllStates()) {
-        System.out.println(state.getStateInfo());
-        }
-
-        //states.getAllStates20Vat();
+    //.3
+            
 
     }}
+
+
 
 
 

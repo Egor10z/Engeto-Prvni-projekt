@@ -53,7 +53,8 @@ public class ListOfStates {
     }
     public void getAllStates20Vat() {
         for(State state : listOfStates) {
-            if (state.getFullVAT() > 20) {
+            if (state.getFullVAT() > 20 && !state.specialVAT) {
+
                 System.out.println(state.getStateInfo());
             }
     }
