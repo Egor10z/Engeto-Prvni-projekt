@@ -25,21 +25,25 @@ public class ListOfStates {
         listOfStates.remove(index);
     }
 
+    String oldContent = ",";
+
     public void importStatesFromFile(String filename) throws StateException {
         try (Scanner scanner = new Scanner(new BufferedReader(new FileReader(filename)))) {
-            int i = 0;
+
+            int line = 0;
             while (scanner.hasNextLine()) {
                 String order = scanner.nextLine();
-                i++;
+                String order2 = order.replace(",", ".");
+                line++;
                 try {
-                    this.addState(State.parseState(order, DELIMITER));
+                    this.addState(State.parseState(order2, DELIMITER));
                 } catch (StateException e) {
-                    throw new StateException("Neplatný soubor");
+                    throw new StateException("Chybný soubor na řádku: " +line+ "->" + e.getLocalizedMessage());
                 }
 
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            throw new StateException("Vstupní soubor " +filename+ " nebyl nalezen: " +e.getLocalizedMessage());
         }
     }
 

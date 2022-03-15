@@ -18,9 +18,9 @@ public class Main {
         }
 
 
-        //  for (State state : states.getAllStates()) {
-        //System.out.println(state.getStateInfo());
-        //}
+          for (State state : states.getAllStates()) {
+        System.out.println(state.getStateInfo());
+        }
 
         //states.getAllStates20Vat();
 
