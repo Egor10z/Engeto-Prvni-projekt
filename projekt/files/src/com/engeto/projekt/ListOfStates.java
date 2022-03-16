@@ -61,13 +61,26 @@ public class ListOfStates {
 
     }
 
-    public void getAllStates20VatSort(){
+    public void getAllStates20VatSort() {
         Collections.sort(listOfStates);
         for (State state : listOfStates) {
             if (state.getFullVAT() > 20 && !state.specialVAT) {
                 System.out.println(state.getStateInfo());
             }
         }
+        System.out.println("====================");
+        System.out.print("Sazba VAT 20 % nebo nižší nebo používají speciální sazbu: ");
+        for (State state : listOfStates) {
+            if (state.getFullVAT() <= 20){
+                if (state.specialVAT = true){
+                    System.out.print(state.getStateAbbreviations() + ", ");
+                }
+
+            }
+        }
     }
+
 }
+
+
 

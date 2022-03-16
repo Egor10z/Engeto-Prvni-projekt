@@ -87,8 +87,9 @@ public class State implements Comparable<State>{
     }
 
     public String getStateInfo() {
-        return "Název země: " + nameOfState + " (zkratka): " +stateAbbreviations+ " zakladní sazba " + fullVAT+ "%";
+        return nameOfState + "(" + stateAbbreviations + "):  " + fullVAT+ "%";
     }
+
 
 
     @Override
