@@ -1,8 +1,7 @@
 package com.engeto.projekt;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static final String FILENAME = "vat-eu.csv";
@@ -22,11 +21,11 @@ public class Main {
         //
         //}
     //2.
-        states.getAllStates20Vat();
-
+      //  states.getAllStates20Vat();
 
     //.3
-            
+        states.getAllStates20VatSort();
+
 
     }}
 

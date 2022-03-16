@@ -3,9 +3,7 @@ package com.engeto.projekt;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ListOfStates {
 
@@ -51,13 +49,25 @@ public class ListOfStates {
     public List<State> getAllStates() {
         return new ArrayList<>(listOfStates);
     }
-    public void getAllStates20Vat() {
-        for(State state : listOfStates) {
-            if (state.getFullVAT() > 20 && !state.specialVAT) {
 
+
+    public void getAllStates20Vat() {
+        for (State state : listOfStates) {
+            if (state.getFullVAT() > 20 && !state.specialVAT) {
                 System.out.println(state.getStateInfo());
             }
+        }
+
+
     }
 
-}}
+    public void getAllStates20VatSort(){
+        Collections.sort(listOfStates);
+        for (State state : listOfStates) {
+            if (state.getFullVAT() > 20 && !state.specialVAT) {
+                System.out.println(state.getStateInfo());
+            }
+        }
+    }
+}
 

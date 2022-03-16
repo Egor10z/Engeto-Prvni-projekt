@@ -2,8 +2,9 @@ package com.engeto.projekt;
 
 import javax.crypto.spec.PSource;
 import java.util.ArrayList;
+import java.util.List;
 
-public class State {
+public class State implements Comparable<State>{
 
      String stateAbbreviations;
      String nameOfState;
@@ -90,4 +91,12 @@ public class State {
     }
 
 
+    @Override
+    public int compareTo(State o) {
+        if(this.getFullVAT() == o.getFullVAT()) return 0;
+
+        else if (this.getFullVAT() > o.getFullVAT()) return -1;
+
+        else return 1;
     }
+}
