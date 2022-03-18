@@ -2,45 +2,45 @@ package com.engeto.projekt;
 
 import javax.crypto.spec.PSource;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
-public class State implements Comparable<State>{
+public class State implements Comparable<State> {
 
-     String stateAbbreviations;
-     String nameOfState;
-     Double fullVAT;
-     Double reducedVAT;
-     boolean specialVAT;
+    String stateAbbreviations;
+    String nameOfState;
+    Double fullVAT;
+    Double reducedVAT;
+    boolean specialVAT;
 
     public State(String stateAbbreviations, String nameOfState, Double fullVAT, Double reducedVAT, boolean specialVAT) {
         this.stateAbbreviations = stateAbbreviations;
         this.nameOfState = nameOfState;
         this.fullVAT = fullVAT;
         this.reducedVAT = reducedVAT;
-        this. specialVAT = specialVAT;
+        this.specialVAT = specialVAT;
     }
 
 
-    public static State parseState(String text,String delimiter) throws StateException{
+    public static State parseState(String text, String delimiter) throws StateException {
         String[] parts = text.split(delimiter);
 
         String stateAbbreviations = parts[0];
-        String nameOfState = parts [1];
+        String nameOfState = parts[1];
         try {
             Double fullVAT = Double.parseDouble(parts[2]);
             Double reducedVAT = Double.parseDouble(parts[3]);
             boolean specialVAT;
-            if (parts[4].equals("true")){
+            if (parts[4].equals("true")) {
                 specialVAT = true;
-            }
-            else if (parts[4].equals("false")){
+            } else if (parts[4].equals("false")) {
                 specialVAT = false;
-            }
-            else{
+            } else {
                 throw new StateException("Chybně zadaná hodnota pro specální sazby");
             }
-            return new State(stateAbbreviations,nameOfState,fullVAT,reducedVAT,specialVAT);
-        } catch (NumberFormatException ex){
+            return new State(stateAbbreviations, nameOfState, fullVAT, reducedVAT, specialVAT);
+        } catch (NumberFormatException ex) {
             throw new StateException("Špatně zadané údaje");
         }
 
@@ -87,8 +87,30 @@ public class State implements Comparable<State>{
     }
 
     public String getStateInfo() {
-        return nameOfState + "(" + stateAbbreviations + "):  " + fullVAT+ "%";
+        return nameOfState + "(" + stateAbbreviations + "):  " + fullVAT + "%";
     }
+
+    public double safeReadInt() throws StateException {
+        Scanner scanner = new Scanner(System.in);
+        double autoFill = 20.0;
+        double result;
+        System.out.print("Filtr sazby: ");
+        String inputText = scanner.nextLine();
+        try {
+            result = Double.parseDouble(inputText);
+        } catch (NumberFormatException ex) {
+            throw new StateException("Špatně zadané číslo!");
+        }
+        if (inputText.isEmpty())
+            return autoFill;
+
+
+        if (result < 0)
+            throw new StateException("Číslo nemůže být záporné!");
+
+        return result;
+    }
+
 
 
 
