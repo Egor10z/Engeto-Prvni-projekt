@@ -1,0 +1,11 @@
+Denmark(DK):  25.0%
+Greece(GR):  24.0%
+Finland(FI):  24.0%
+Croatia(HR):  25.0%
+Italy(IT):  22.0%
+Hungary(HU):  27.0%
+Ireland(IE):  23.0%
+Poland(PL):  23.0%
+Portugal(PT):  23.0%
+Slovenia(SI):  22.0%
+Sweden(SE):  25.0%

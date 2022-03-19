@@ -107,28 +107,19 @@ public class ListOfStates {
     }
 
 
+    public void readVatInput() throws StateException {
 
+        int input = (int) Support.safeReadDouble();
+            try (PrintWriter writer = new PrintWriter(new FileWriter(("vat-over-" + input+".txt")))) {
 
-
-    public double safeReadInt() throws StateException{
-        Scanner scanner = new Scanner(System.in);
-        double autoFill = 20.0;
-        double result ;
-        System.out.print("Filtr sazby: ");
-        String inputText = scanner.nextLine();
-        try {
-            result = Double.parseDouble(inputText);
-        } catch (NumberFormatException ex) {
-            throw new StateException("Špatně zadané číslo!");
-        }
-        if(inputText.isEmpty()) {
-            return autoFill;
-        }
-            if (result < 0) {
-                throw new StateException("Číslo nemůže být záporné!");
+                for (State state : listOfStates) {
+                    if (input < state.getFullVAT()) {
+                        writer.println(state.getStateInfo());
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            return result; }
-}
-
-
+        }
+        }
 
