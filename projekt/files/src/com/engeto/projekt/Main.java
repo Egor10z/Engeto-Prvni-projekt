@@ -1,13 +1,6 @@
 package com.engeto.projekt;
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.*;
-import java.util.Scanner;
-
-import static com.engeto.projekt.Support.safeReadDouble;
-
 public class Main {
     public static final String FILENAME = "files/src/vat-eu.csv";
     public static final String OUTPUT = "files/src/vat-eu-20.txt";
@@ -40,6 +33,6 @@ public class Main {
             }*/
 
             // 7.
-             states.readVatInput();
+             states.saveFilteredFiles();
             }
         }

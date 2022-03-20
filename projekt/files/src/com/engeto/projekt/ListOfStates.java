@@ -108,7 +108,7 @@ public class ListOfStates {
     }
 
 
-    public void readVatInput() throws StateException {
+    public void saveFilteredFiles() throws StateException {
 
         int input = (int) Support.safeReadDouble();
             try (PrintWriter writer = new PrintWriter(new FileWriter(("files/src/vat-over-" + input+".txt")))) {
@@ -118,9 +118,16 @@ public class ListOfStates {
                         writer.println(state.getStateInfo());
                     }
                 }
-            } catch (IOException e) {
-                e.getLocalizedMessage();
+                writer.println("====================");
+                writer.print("Zbytek států se sazbou menší než "+input+"% : ");
+                for (State state : listOfStates) {
+                    if (state.getFullVAT() < input) {
+                            writer.print(state.getStateAbbreviations() + ", ");
             }
         }
-        }
+        } catch (IOException e) {
+                e.getLocalizedMessage();
+            }
+    }
+}
 
