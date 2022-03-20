@@ -80,7 +80,7 @@ public class ListOfStates {
 
 
 
-    public void saveToFile(String output) {
+    public void saveToFile(String output) throws StateException {
         try (PrintWriter writer = new PrintWriter(new FileWriter(output))) {
 
             Collections.sort(listOfStates);
@@ -102,7 +102,8 @@ public class ListOfStates {
 
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new StateException("Soubor nelze uložit do: " +output+ ": " +e.getLocalizedMessage());
+
         }
     }
 
@@ -110,7 +111,7 @@ public class ListOfStates {
     public void readVatInput() throws StateException {
 
         int input = (int) Support.safeReadDouble();
-            try (PrintWriter writer = new PrintWriter(new FileWriter(("vat-over-" + input+".txt")))) {
+            try (PrintWriter writer = new PrintWriter(new FileWriter(("files/src/vat-over-" + input+".txt")))) {
 
                 for (State state : listOfStates) {
                     if (input < state.getFullVAT()) {
@@ -118,7 +119,7 @@ public class ListOfStates {
                     }
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                e.getLocalizedMessage();
             }
         }
         }

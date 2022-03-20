@@ -90,27 +90,6 @@ public class State implements Comparable<State> {
         return nameOfState + "(" + stateAbbreviations + "):  " + fullVAT + "%";
     }
 
-    public double safeReadInt() throws StateException {
-        Scanner scanner = new Scanner(System.in);
-        double autoFill = 20.0;
-        double result;
-        System.out.print("Filtr sazby: ");
-        String inputText = scanner.nextLine();
-        try {
-            result = Double.parseDouble(inputText);
-        } catch (NumberFormatException ex) {
-            throw new StateException("Špatně zadané číslo!");
-        }
-        if (inputText.isEmpty())
-            return autoFill;
-
-
-        if (result < 0)
-            throw new StateException("Číslo nemůže být záporné!");
-
-        return result;
-    }
-
 
 
 

@@ -30,8 +30,10 @@ import java.util.Scanner;
             if (inputText.isEmpty()){
                 return autoFill;
             }
-            if (result < 0){
-                throw new StateException("Číslo nemůže být záporné!");
+            while (result < 0){
+                System.err.print("Číslo nemůže být záporné!\nZkus to ještě jednou: ");
+                result = Double.parseDouble(getScanner().nextLine());
+
             }
             return result;
         }

@@ -9,8 +9,8 @@ import java.util.Scanner;
 import static com.engeto.projekt.Support.safeReadDouble;
 
 public class Main {
-    public static final String FILENAME = "vat-eu.csv";
-    public static final String OUTPUT = "vat-eu-20.txt";
+    public static final String FILENAME = "files/src/vat-eu.csv";
+    public static final String OUTPUT = "files/src/vat-eu-20.txt";
 
 
         public static void main(String[] args) throws StateException {
@@ -19,7 +19,7 @@ public class Main {
             try {
                 states.importStatesFromFile(FILENAME);
             } catch (StateException e) {
-                e.printStackTrace();
+                System.err.println(e.getLocalizedMessage());
             }
             // bod 2.
              // for (State state : states.getAllStates()) {
@@ -36,9 +36,9 @@ public class Main {
             try {
                 states.saveToFile(OUTPUT);
             } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-            */
+                throw new StateException("Chyba při ukládání souboru");
+            }*/
+
             // 7.
              states.readVatInput();
             }
